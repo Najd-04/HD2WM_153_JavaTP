@@ -1,46 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Aflam</title>
     <link rel="stylesheet" href="vendor/uikit/css/uikit.min.css"/>
     <script>src = "vendor/uikit/js/uikit.min.js"</script>
     <script>src = "vendor/uikit/js/uikit.icons.min.js"</script>
     <link rel="stylesheet" href="vendor/fontawesome-/css/all.min.css"/>
     <link rel="stylesheet" href="eni-theme.css">
-    <h1>Les Films</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
 </head>
-<body class="eni-page-background">
-<div   class="uk-child-width-1-2@m" uk-grid>
-    <div>
-        <div class="uk-card uk-card-default">
-            <div class="uk-card-media- uk-cover-container">
-                <img src="once.jpg" uk-cover>
-                <canvas width="600" height="400"></canvas>
-            </div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">once upon a time in the west</h3>
-                <div><i class="fas fa-star eni-star-check"></i><i class="fas fa-star eni-star-check"></i><i class="fas fa-star eni-star-check"></i><i
-                        class="fas fa-star eni-star-check"></i><i class="fas fa-star eni-star-check"></i></div>
 
 
-            </div>
-        </div>
+
+<body>
+<nav>
+    <div class="menu">
+        <a href="list-films">Liste des films</a>
+        <a href="details-films">Details du film</a>
+
     </div>
-    <div>
-        <div class="uk-card uk-card-default">
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">The Godfather</h3>
-                <div><i class="fas fa-star eni-star-check"></i><i class="fas fa-star eni-star-check"></i><i class="fas fa-star eni-star-check"></i><i
-                        class="fas fa-star eni-star-check"></i><i class="fas fa-star"></i></div>
+</nav>
+<h1>Liste des Films</h1>
 
-            </div>
-            <div class="uk-card-media-left uk-cover-container">
-                <img src="godfather.jpg" uk-cover>
-                <canvas width="600" height="400"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
+<ul>
+    <li th:each="movie:${movies}"th:text="${movie.title}"></li>
+</ul>
+
+
 </body>
 </html>

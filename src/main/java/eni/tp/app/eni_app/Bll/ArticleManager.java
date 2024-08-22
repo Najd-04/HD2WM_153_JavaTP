@@ -18,4 +18,11 @@ public class ArticleManager {
 
             return movies;
         }
+    public  Movie getById(long id) {
+
+        Movie movie = daoMovie.selectMovieById(id);
+
+        return movie;
+
+    }
 }
