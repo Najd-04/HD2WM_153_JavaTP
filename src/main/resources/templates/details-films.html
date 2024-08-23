@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="vendor/uikit/css/uikit.min.css"/>
-    <script>src = "vendor/uikit/js/uikit.min.js"</script>
-    <script>src = "vendor/uikit/js/uikit.icons.min.js"</script>
-    <link rel="stylesheet" href="vendor/fontawesome-/css/all.min.css"/>
-    <link rel="stylesheet" href="eni-theme.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details Movies</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{v1/base}">
+
 <h1>Details des Films</h1>
 <body>
-<div  class="uk-child-width-1-2@m" uk-grid>
-    <img th:src="@{${movie.url}}"/>
-    <p th:text="${movie.title}"></p>
-    <p th:text="${'Année :'+movie.year}"></p>
-    <p th:text="${movie.synopsis}"></p>
-    <p th:text="${'duree :' +movie.duration + ' minutes'}"></p>
+<title layout:fragment="title">Details du films</title>
+<div layout:fragment="content">
+    <div class="uk-child-width-1-2@m" uk-grid>
+        <img th:src="@{${movie.url}}"/>
+        <p th:text="${movie.title}"></p>
+        <p th:text="${'Année :'+movie.year}"></p>
+        <p th:text="${movie.synopsis}"></p>
+        <p th:text="${'duree :' +movie.duration + ' minutes'}"></p>
+    </div>
 </div>
 </body>
 </html>
