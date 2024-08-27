@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{v1/base}">
+      layout:decorate="~{base}">
 <body>
 <title layout:fragment="title">Liste de films </title>
 <div layout:fragment="content">
@@ -14,9 +14,9 @@
                     <i th:each="star: ${maxStars}" class="fa fa-star"
                        th:classappend="${movie.getNote() >= star} ? 'eni-star-check' : ''"></i>
                 </div>
-                <p th:text="${movie.synopsis}" class="eni-desc"></p>
+
             </div>
-            <a th:href="@{/details/{id}(id=${movie.id})}" class="eni-movie-card-click">
+            <a class="eni-movie-card-click" th:href="@{/details/{id}(id=${movie.id})}" >
 
             </a>
         </div>

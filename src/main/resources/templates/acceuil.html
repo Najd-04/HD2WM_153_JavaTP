@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{v1/base}" >
+      layout:decorate="~{base}" >
 
 
 <title>Home</title>
 <body>
 <title layout:fragment="title">Home</title>
 <div layout:fragment="content">
-<nav>
-    <div class="menu">
-        <a href="list-films">Liste des films</a>
-        <a href="details-films">Details du film</a>
 
-    </div>
-</nav>
-<h1>Liste des Films</h1>
+<h1>Acceuil</h1>
 
 <ul>
     <li th:each="movie:${movies}"th:text="${movie.title}"></li>

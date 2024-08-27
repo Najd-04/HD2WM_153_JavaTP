@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+<body>
+<title layout:fragment="title">Creation de film </title>
+<div layout:fragment="content">
+    <body>
+    <div class="uk-container">
+
+        <h1>Creation du film</h1>
+        <form th:object="${movie}" method="post" action="/create-movie">
+
+            <!-- Champ titre -->
+            <div class="uk-margin">
+                <label class="uk-form-label" for="title">Titre</label>
+                <div class="uk-form-controls">
+                    <input th:field="*{title}" class="uk-input" type="text" placeholder="Saisir le titre">
+                    <ul th:if="${#fields.hasErrors('title')}">
+                        <li class="uk-form-danger" th:each="error: ${#fields.errors('title')}" th:text="${error}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Champ année -->
+            <div class="uk-margin">
+                <label class="uk-form-label" for="year">Année</label>
+                <div class="uk-form-controls">
+                    <input th:field="*{year}" class="uk-input" type="number" placeholder="Saisir l'année">
+                    <ul th:if="${#fields.hasErrors('year')}">
+                        <li class="uk-form-danger" th:each="error: ${#fields.errors('year')}" th:text="${error}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Champ durée -->
+            <div class="uk-margin">
+                <label class="uk-form-label" for="duration">Durée</label>
+                <div class="uk-form-controls">
+                    <input th:field="*{duration}" class="uk-input" type="number" placeholder="Saisir la durée">
+                    <ul th:if="${#fields.hasErrors('duration')}">
+                        <li class="uk-form-danger" th:each="error: ${#fields.errors('duration')}" th:text="${error}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Champ synopsis -->
+            <div class="uk-margin">
+                <label class="uk-form-label" for="synopsis">Synopsis</label>
+                <div class="uk-form-controls">
+                    <textarea  th:field="*{synopsis}" class="uk-textarea"></textarea>
+                    <ul th:if="${#fields.hasErrors('synopsis')}">
+                        <li class="uk-form-danger" th:each="error: ${#fields.errors('synopsis')}" th:text="${error}"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bouton submit -->
+            <div class="uk-margin">
+                <input type="submit" value="Enregister" class="uk-button uk-button-primary uk-width-1-1"/>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en"
+      layout:decorate="~{base}"
+>
+<body>
+<!-- Surcharger le title -->
+<title layout:fragment="title">Erreur</title>
+
+
+<!-- Surcharger le content -->
+<div layout:fragment="content">
+    <div class="uk-container uk-padding-large">
+        <div class="uk-alert-danger" uk-alert>
+            <a href class="uk-alert-close" uk-close></a>
+            <p>Vous êtes déjà connecté(e)</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
