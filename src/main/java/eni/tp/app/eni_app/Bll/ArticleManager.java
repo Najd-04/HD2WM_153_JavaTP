@@ -25,4 +25,7 @@ public class ArticleManager {
         return movie;
 
     }
+    public void saveMovie(Movie movie) {
+        daoMovie.saveMovie(movie);
+    }
 }

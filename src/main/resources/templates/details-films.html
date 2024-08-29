@@ -5,14 +5,26 @@
 <h1>Details des Films</h1>
 <body>
 <title layout:fragment="title">Details du films</title>
+<!-- Je rajoute du css -->
+<div layout:fragment="css-files">
+    <link rel="stylesheet" href="/eni-movie-detail.css"/>
+</div>
 <div layout:fragment="content">
-    <div class="uk-child-width-1-2@m" uk-grid>
-        <img th:src="@{${movie.url}}"/>
-        <p th:text="${movie.title}"></p>
-        <p th:text="${'Année :'+movie.year}"></p>
-        <p th:text="${movie.synopsis}"></p>
-        <p th:text="${'duree :' +movie.duration + ' minutes'}"></p>
-    </div>
+    <section class="eni-movie-detail-banner clearfix">
+        <div class="eni-banner-content-wrapper">
+            <div class="eni-poster">
+                <img th:src="@{${movie.url}}"/>
+            </div>
+            <div class="eni-detail-content">
+                <h2 class="title" th:text="${movie.title}"></h2>
+
+                <p th:text="${'Année :'+movie.year}"></p>
+
+                <p class="description" th:text="${'Synopsis : ' +movie.synopsis}"></p>
+                <p th:text="${'duree :' +movie.duration + ' minutes'}"></p>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 </html>

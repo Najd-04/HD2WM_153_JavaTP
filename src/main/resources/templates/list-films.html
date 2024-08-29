@@ -9,7 +9,7 @@
         <div class="eni-movie-card" th:style="'background-image: url(' + @{${movie.url}} + ');'">
             <div class="eni-movie-card-layer-2">
                 <h1 th:text="${movie.title}"></h1><span th:text="${movie.duration} + ' min'"></span>
-                <p th:text="${'Année :'+movie.year}"></p>
+                <span th:text="${'Année :'+movie.year}"></span>
                 <div>
                     <i th:each="star: ${maxStars}" class="fa fa-star"
                        th:classappend="${movie.getNote() >= star} ? 'eni-star-check' : ''"></i>

@@ -4,7 +4,7 @@ import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Movie {
-    public long id;
+    public Long id;
     @NotBlank(message="le titre doit être renseigné")
     @Size(min=2,max=250,message=("Doit avoir au moins 2 caractères"))
     public String title;
@@ -22,7 +22,7 @@ public class Movie {
     public String synopsis;
     public String url;
 
-    public Movie(String title, long id, int year, int duration, String synopsis, String url) {
+    public Movie(String title, Long id, int year, int duration, String synopsis, String url) {
         this.title = title;
         this.id = id;
         this.year = year;
@@ -31,7 +31,7 @@ public class Movie {
         this.url = url;
     }
 
-    public Movie(long id, String title, int year, int duration, String synopsis, String url) {
+    public Movie(Long id, String title, int year, int duration, String synopsis, String url) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -44,11 +44,11 @@ public class Movie {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

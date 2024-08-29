@@ -9,7 +9,9 @@
 
         <h1>Creation du film</h1>
         <form th:object="${movie}" method="post" action="/create-movie">
+<!--id-->
 
+            <input th:field="*{id}" type="hidden">
             <!-- Champ titre -->
             <div class="uk-margin">
                 <label class="uk-form-label" for="title">Titre</label>
@@ -50,6 +52,15 @@
                     <textarea  th:field="*{synopsis}" class="uk-textarea"></textarea>
                     <ul th:if="${#fields.hasErrors('synopsis')}">
                         <li class="uk-form-danger" th:each="error: ${#fields.errors('synopsis')}" th:text="${error}"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="url">url </label>
+                <div class="uk-form-controls">
+                    <input th:field="*{url}" class="uk-input" type="text" placeholder="Entrer l'url de la photo">
+                    <ul th:if="${#fields.hasErrors('url')}">
+                        <li class="uk-form-danger" th:each="error: ${#fields.errors('url')}" th:text="${error}"></li>
                     </ul>
                 </div>
             </div>

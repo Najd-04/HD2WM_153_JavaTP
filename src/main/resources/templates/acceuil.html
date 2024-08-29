@@ -5,15 +5,12 @@
 
 <title>Home</title>
 <body>
-<title layout:fragment="title">Home</title>
+<title layout:fragment="title"th:text="#{title.home}">acceuil</title>
 <div layout:fragment="content">
 
-<h1>Acceuil</h1>
+<h1 th:text="#{title.home}"></h1>
 
-<ul>
-    <li th:each="movie:${movies}"th:text="${movie.title}"></li>
-</ul>
-
+<p th:text="#{message.welcome}"></p>
 </div>
 </body>
 </html>

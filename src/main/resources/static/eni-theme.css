@@ -71,3 +71,8 @@
 .eni-movie-card button:active {
     transform: translateY(2px);
 }
+.Bledflix {
+    font-family: Arial;
+    color: red;
+    text-align: center;
+}
