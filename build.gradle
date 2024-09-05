@@ -28,6 +28,15 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 //	JDBC
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+	// Starter Spring Data JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Starter Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	testImplementation 'org.springframework.security:spring-security-test'
+
 }
 
 tasks.named('test') {

@@ -8,7 +8,7 @@
     <div class="uk-container">
 
         <h1>Creation du film</h1>
-        <form th:object="${movie}" method="post" action="/create-movie">
+        <form th:object="${movie}" method="post" th:action="@{/create-movie}">
 <!--id-->
 
             <input th:field="*{id}" type="hidden">

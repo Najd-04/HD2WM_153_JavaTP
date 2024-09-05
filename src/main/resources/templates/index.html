@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/vendor/uikit/css/uikit.min.css"/>
+
+  <!-- UIkit JS -->
+  <script src="/vendor/uikit/js/uikit.min.js"></script>
+  <script src="/vendor/uikit/js/uikit-icons.min.js"></script>
+  <link rel="icon" th:href="@{/images/login-icon.png}">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/eni-theme.css}"/>
+  <title>Title</title>
+</head>
+<body class="eni-page-background2">
+<header>
+  <div sec:authorize="isAuthenticated()">
+    Logged user: <span sec:authentication="name"></span>
+    Roles: <span sec:authentication="principal.authorities"></span>
+  </div>
+  <nav class="uk-navbar-container">
+    <div class="uk-container">
+      <div uk-navbar>
+        <div class="uk-navbar-left">
+          <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
+          <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li class="uk-active"  sec:authorize="!isAuthenticated()"><a th:href="@{/login}"> Connexion</a></li>
+              <li class="uk-active" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"> Déconnexion</a></li>
+              <li class="uk-active" sec:authorize="hasRole('MEMBRE')"><a th:href="@{/list}"> Afficher Films</a></li>
+              <li class="uk-active" sec:authorize="hasAnyRole('ADMIN', 'MEMBRE')"><a th:href="@{/create-movie}">Ajouter un film</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<h1>Bienvenue à l'application BLEDFLIX</h1>
+
+<p>La meilleur Application de films</p>
+
+</body>
+</html>

@@ -9,6 +9,7 @@
 <div layout:fragment="content">
 
 <h1 th:text="#{title.home}"></h1>
+    <div th:text="${sessionUser.nom}+' '+${sessionUser.prenom}"></div>
 
 <p th:text="#{message.welcome}"></p>
 </div>

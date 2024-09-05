@@ -19,7 +19,7 @@
           integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
     <!-- My Theme -->
-    <link rel="stylesheet" href="/eni-theme.css"/>
+    <link rel="stylesheet" th:href="@{/css/eni-theme.css}"/>
 
     <!-- Css supplementaire -->
     <div layout:fragment="css-files"></div>
@@ -27,6 +27,10 @@
 </head>
 <body>
 <header>
+    <div sec:authorize="isAuthenticated()">
+        Logged user: <span sec:authentication="name"></span>
+        Roles: <span sec:authentication="principal.authorities"></span>
+    </div>
 
 <nav class="uk-navbar-container eni-navbar-gradient" uk-navbar>
     <div class="uk-navbar-left eni-navbar-btn-padding">
@@ -43,10 +47,10 @@
 
     <div class="uk-navbar-right eni-navbar-btn-padding">
         <!-- Afficher le bouton se connecter si loggedUser est null (donc si pas connecté)-->
-        <a th:if="${loggedUser == null}" class="uk-icon-button" href="/login"><i class="fas fa-sign-in-alt"></i></a>
+        <a sec:authorize="!isAuthenticated()" class="uk-icon-button" href="/login"><i class="fas fa-sign-in-alt"></i></a>
 
         <!-- Afficher le bouton se déconnecter si loggedUser est null (donc si connecté)-->
-        <a th:if="${loggedUser}" class="uk-icon-button" href="/logout"><i class="fas fa-door-open"></i></a>
+        <a sec:authorize="isAuthenticated()" class="uk-icon-button"   href="/logout"><i class="fas fa-door-open"></i></a>
     </div>
 
 </nav>
@@ -56,8 +60,8 @@
             <li class="uk-active"><a href="/acceuil">Accueil</a></li>
             <li><a href="#">À propos</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="/list">Liste des films</a></li>
-            <li><a href="/create-movie">Ajouter un film</a></li>
+            <li><a sec:authorize="hasRole('MEMBRE')"><a th:href="@{/list}">Liste des films</a></li>
+            <li><a sec:authorize="hasAnyRole('ADMIN', 'MEMBRE')"><a th:href="@{/create-movie}">Ajouter un film</a></li>
         </ul>
     </div>
 </div>
