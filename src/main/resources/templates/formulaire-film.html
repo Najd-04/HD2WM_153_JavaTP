@@ -22,6 +22,19 @@
                     </ul>
                 </div>
             </div>
+            <!-- champ genre-->
+            <label class="uk-form-label" for="genre">Genre</label>
+            <select th:field="*{genre}">
+
+                <option th:each="cat :${genres}" th:value="${cat.id}" th:text="${cat.titre}"></option>
+
+            </select>
+            <label class="uk-form-label" for="participants">Participant</label>
+            <select multiple th:field="*{participants}">
+
+                <option th:each="cat :${participants}" th:value="${cat.id}" th:text="${cat.nom}"></option>
+
+            </select>
 
             <!-- Champ année -->
             <div class="uk-margin">

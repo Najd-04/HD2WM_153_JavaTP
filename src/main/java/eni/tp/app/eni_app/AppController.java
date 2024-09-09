@@ -59,6 +59,11 @@ public class AppController {
         model.addAttribute("movies", articleManager.getMovies());
         return "list-films";
     }
+    @GetMapping("/")
+    public String index() {
+
+        return "/acceuil";
+    }
 
 
 }
